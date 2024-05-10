@@ -116,7 +116,13 @@ function displayFavoriteIcon(movie) {
 }
 
 
-
+function searchMovies() {
+    const keyword = document.getElementById("searchInput").value.toLowerCase();
+    const results = movies.filter(movie => movie.title.toLowerCase().includes(keyword) ||
+                                          movie.cast.toLowerCase().includes(keyword) ||
+                                          movie.category.toLowerCase().includes(keyword));
+    displayMovies(results);
+}
 
 function showAllMovies() {
     document.getElementById("searchInput").value = "";
