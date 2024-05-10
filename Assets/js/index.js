@@ -13,6 +13,9 @@ const movies = [
     { "title": "Avatar", "cast": "Sam Worthington, Zoe Saldana", "category": "Adventure", "releaseDate": "2009-12-18", "budget": "$237 million" }
 ];
 
+
+let favorites = new Set();
+
 function displayMovies(movieArray) {
     const movieListDiv = document.getElementById("movieList");
     movieListDiv.innerHTML = "";
@@ -76,10 +79,53 @@ function displayMovies(movieArray) {
     });
 }
 
-displayMovies(movies);
+function toggleDetails(clickedMovieDiv) {
+    const allMovieDivs = document.querySelectorAll('.movie');
+    allMovieDivs.forEach(movieDiv => {
+        if (movieDiv !== clickedMovieDiv) {
+            const detailsContainer = movieDiv.querySelector(".movie-details");
+            detailsContainer.classList.remove("show-details");
+        }
+    });
+
+    const detailsContainer = clickedMovieDiv.querySelector(".movie-details");
+    detailsContainer.classList.toggle("show-details");
+}
+
+function toggleFavorite(movie) {
+    if (favorites.has(movie)) {
+        favorites.delete(movie);
+    } else {
+        favorites.add(movie);
+    }
+    displayFavoriteIcon(movie);
+}
+
+function displayFavoriteIcon(movie) {
+    const movieDivs = document.querySelectorAll('.movie');
+    movieDivs.forEach(movieDiv => {
+        if (movieDiv.querySelector("h2").textContent === movie.title) {
+            const favoriteButton = movieDiv.querySelector(".favorite-button");
+            if (favorites.has(movie)) {
+                favoriteButton.classList.add("favorited");
+            } else {
+                favoriteButton.classList.remove("favorited");
+            }
+        }
+    });
+}
+
+
 
 
 function showAllMovies() {
     document.getElementById("searchInput").value = "";
     displayMovies(movies);
 }
+
+function showFavoritedMovies() {
+    const favoritedMovies = movies.filter(movie => favorites.has(movie));
+    displayMovies(favoritedMovies);
+}
+
+displayMovies(movies);
