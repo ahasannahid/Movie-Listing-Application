@@ -1,23 +1,86 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>MoMovie Listing Applicationvie</title>
+    <title>Movie Listing Application</title>
     <link rel="stylesheet" href="./Assets/css/movies.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
-    <script src="https://cdn.tailwindcss.com"></script>
-    
+    <!-- <script src="https://cdn.tailwindcss.com"></script> -->
+
+    <style>
+        .container {
+            padding: 20px;
+        }
+
+        .movie {
+            display: flex;
+            margin-bottom: 20px;
+            flex-direction: column;
+        }
+
+        .movie-details {
+            background-color: #1E90FF;
+            color: white;
+            padding: 10px;
+            margin-left: 10px;
+            display: none;
+            flex-direction: column;
+        }
+
+        .show-details {
+            display: block;
+        }
+
+        .favorite-button {
+            background: none;
+            border: none;
+            cursor: pointer;
+            font-size: 20px;
+            color: #ccc;
+            margin-left: 10px;
+            width: 5px;
+        }
+
+        .favorite-button:hover {
+            background: none;
+            color: rgb(222, 113, 113);
+        }
+
+        .favorite-button.favorited {
+            color: red;
+        }
+
+        .details-favorite-container {
+            display: flex;
+            justify-content: space-between;
+            width: 300px;
+            align-items: center;
+            margin-top: 10px;
+        }
+
+        .show-details {
+            flex: 8;
+        }
+
+        .favorite-button {
+            flex: 2;
+        }
+    </style>
+
 </head>
+
 <body>
     <header>
         <h1 class="font-semibold text-violet-600">Movie Listing Application</h1>
         <input type="text" id="searchInput" placeholder="Search movies...">
-        <button >Search</button>
-        <button >See All Movies</button>
-        <button >Show Favorite Movies</button>
+        <button>Search</button>
+        <button>See All Movies</button>
+        <button>Show Favorite Movies</button>
     </header>
     <div class="container" id="movieList"></div>
     <script src="./Assets/js/index.js"></script>
 </body>
+
 </html>
