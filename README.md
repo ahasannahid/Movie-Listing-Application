@@ -1,2 +1,2 @@
-user email: admin
+user email: admin <br>
 Password: 1234
