@@ -2,10 +2,26 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Movie Listing Application</title>
+    <script src="https://cdn.tailwindcss.com"></script>
 </head>
 <body>
-    
+    <header><h1 class="text-5xl text-center mt-6">Welcome to <span class="font-semibold text-violet-600">Movie Listing Application</span></h1></header>
+    <main>
+        <section class="bg-blue-100 w-9/12 mx-auto mt-12 p-8">
+            <h3 class="text-3xl mb-4 font-medium">Please log in</h3>
+            <div>
+                <input type="email" name="" id="user-email" class="w-9/12 block mb-2 px-3" placeholder="your email address">
+                <input type="password" name="" id="user-password" class="w-9/12 block mb-2 px-3" placeholder="your password">
+
+                <small>use email : 'admin' & Password : '1234'</small> <br>
+                <button id="btn-submit" class="bg-amber-600 hover:bg-sky-700 px-8 py-2 mt-2 text-white font-medium rounded-lg">Submit</button>
+            </div>
+        </section>
+    </main>
+
+    <script src="./Assets/js/login.js"></script>
 </body>
 </html>
